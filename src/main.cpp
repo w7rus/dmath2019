@@ -5,6 +5,24 @@
 #include "conmenu.hpp"
 #include "functions.hpp"
 
+#ifdef _WIN32
+    #include <stdint.h>
+    #include <stdlib.h>
+    typedef unsigned char uint8_t;
+
+    #include<sstream>
+    namespace std
+    {
+        template <typename T>
+        std::string to_string(const T& value)
+        {
+            std::ostringstream oss;
+            oss << value;
+            return oss.str();
+        }
+    }
+#endif
+
 int g_arraySize = 1;
 std::string g_outputFilePath;
 

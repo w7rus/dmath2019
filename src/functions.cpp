@@ -3,6 +3,10 @@
 
 #include <iostream>
 #include "functions.hpp"
+#ifdef _WIN32
+    #include <stdint.h>
+    #include <stdlib.h>
+#endif
 int gen_int(int min, int max)
     {
         return min + rand() % (max + 1 - min);
